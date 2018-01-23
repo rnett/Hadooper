@@ -53,4 +53,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if exist "$(SolutionDir)Hadooper.zip" del "$(SolutionDir)Hadooper.zip"
+PowerShell  -ExecutionPolicy Unrestricted "&amp;"'$(SolutionDir)Release.ps1'</PostBuildEvent>
+  </PropertyGroup>
 </Project>

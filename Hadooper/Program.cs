@@ -25,6 +25,14 @@ namespace Hadooper
         static void Main(string[] args)
         {
             Console.WriteLine("Starting...");
+
+
+            if (args.Length < 4)
+            {
+                Console.WriteLine("Wrong number of arguments");
+                return;
+            }
+
             username = args[2];
             password = args[3];
 
@@ -47,7 +55,7 @@ namespace Hadooper
                 return;
 
             string extraArgs = "";
-            if (args.Length <= 4)
+            if (args.Length < 5)
             {
 
             }
