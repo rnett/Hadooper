@@ -1,5 +1,5 @@
 # Hadooper
-Utility script for running hadoop jobs on the CP hadoop server, from windows.
+Utility script for running hadoop jobs on the CP hadoop server, from windows.  It will upload source and input files to the CP Unix server, compile them, upload the input files to the hadoop server, then run the job and download the output (and compile logs).
 
 Ran like `Hadooper.exe <java folder> <inputfolder> <username> <password> [host#] [-e extra args]`
 
@@ -7,7 +7,7 @@ Ran like `Hadooper.exe <java folder> <inputfolder> <username> <password> [host#]
 
 `<input folder>` is the folder containing your hadoop input files.
 
-Hadooper will copy the hadoop output, as well as log files, into <input folder>/../output, aka a folder named output that has the same parent as <input folder>.
+Hadooper will copy the hadoop output, as well as log files, into `<input folder>/../output`, aka a folder named output that has the same parent as `<input folder>`.
 
 `<username>` is your CP Unix username
 
@@ -32,6 +32,6 @@ Hadooper creates a hadoop directory, and works out of there.  It will automatica
 ### Troubleshooting
 I haven't been able to test the Unix scripts on someone else's account, for obvious reasons.  If it doesn't work, make an issue here or email me.
 
-If the scripts don't copy over, they are in the scripts folder in the repository, you can put them in hadooper/.scripts manually.
+If the scripts don't copy over, they are in the Hadooper/scripts folder in the repository, you can put them in hadooper/.scripts manually.
 
 If ssh isn't working: run `cat /dev/zero | ssh-keygen -f .ssh/hadooper_key -q -N ""` then `cat .ssh/hadooper_key.pub >> .ssh/authorized_keys`.
