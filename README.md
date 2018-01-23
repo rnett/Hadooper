@@ -7,7 +7,7 @@ Ran like `Hadooper.exe <java folder> <inputfolder> <username> <password> [host#]
 
 `<input folder>` is the folder containing your hadoop input files.
 
-Hadooper will copy the hadoop output, as well as log files, into <input folder>/../output, aka a folder named output that has the same parent as <input folder>.
+Hadooper will copy the hadoop output, as well as log files, into `<input folder>/../output`, aka a folder named output that has the same parent as `<input folder>`.
 
 `<username>` is your CP Unix username
 
