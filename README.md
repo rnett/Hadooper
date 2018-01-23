@@ -32,6 +32,6 @@ Hadooper creates a hadoop directory, and works out of there.  It will automatica
 ### Troubleshooting
 I haven't been able to test the Unix scripts on someone else's account, for obvious reasons.  If it doesn't work, make an issue here or email me.
 
-If the scripts don't copy over, they are in the scripts folder in the repository, you can put them in hadooper/.scripts manually.
+If the scripts don't copy over, they are in the Hadooper/scripts folder in the repository, you can put them in hadooper/.scripts manually.
 
 If ssh isn't working: run `cat /dev/zero | ssh-keygen -f .ssh/hadooper_key -q -N ""` then `cat .ssh/hadooper_key.pub >> .ssh/authorized_keys`.
