@@ -1,5 +1,5 @@
 # Hadooper
-Utility script for running hadoop jobs on the CP hadoop server, from windows.
+Utility script for running hadoop jobs on the CP hadoop server, from windows.  It will upload source and input files to the CP Unix server, compile them, upload the input files to the hadoop server, then run the job and download the output (and compile logs).
 
 Ran like `Hadooper.exe <java folder> <inputfolder> <username> <password> [host#] [-e extra args]`
 
