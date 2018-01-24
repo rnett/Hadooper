@@ -5,7 +5,7 @@ Ran like `Hadooper.exe <java folder> <inputfolder> <username> <password> [host#]
 
 `<java folder>` is the folder containing your .java files.
 
-`<input folder>` is the folder containing your hadoop input files.
+`<input folder>` is the folder containing your hadoop input files.  Note that this can be a relative path from `<java folder>`.
 
 Hadooper will copy the hadoop output, as well as log files, into `<input folder>/../output`, aka a folder named output that has the same parent as `<input folder>`.
 
