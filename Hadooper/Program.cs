@@ -87,7 +87,7 @@ namespace Hadooper
                     startStr += args[i];
             }
 
-            log.WriteLine(startStr);
+            log.WriteLine(startStr, false);
 
             try
             {
@@ -211,7 +211,7 @@ namespace Hadooper
 
                 log.WriteLine("Uploading to hadoop servers, compiling, and running hadoop job");
                 string start = "hadooper/.scripts/start.sh " + host + " " + name + " " + mainClass + " " + username + " \"" + extraArgs + "\"";
-                var outS = Run(start);
+                var outS = Run(start, true);
 
                 log.WriteLine("Downloading log files");
 
@@ -274,7 +274,7 @@ namespace Hadooper
         public static void UploadFile(FileInfo file, string ftpDir)
         {
 
-            log.WriteLine("\nAttempting to upload " + file.FullName + " to " + ftpDir + "/" + file.Name + "...   ");
+            log.WriteLine("\nAttempting to upload " + file.FullName + " to " + ftpDir + "/" + file.Name + "...   ", false);
 
             Run("touch " + ftpDir + "/" + file.Name);
             var inputStream = file.OpenRead();
@@ -285,13 +285,13 @@ namespace Hadooper
             sftp.EndUploadFile(up);
             inputStream.Close();
 
-            log.WriteLine("Sucess!");
+            log.WriteLine("Sucess!", false);
         }
 
         public static void DownloadFile(string file, string ftpFile)
         {
 
-            log.WriteLine("\nAttempting to download " + ftpFile + " to " + file + "...   ");
+            log.WriteLine("\nAttempting to download " + ftpFile + " to " + file + "...   ", false);
 
             if (File.Exists(file))
                 File.Delete(file);
@@ -306,15 +306,14 @@ namespace Hadooper
 
             outputStream.Close();
 
-            log.WriteLine("Sucess!\n");
+            log.WriteLine("Sucess!\n", false);
         }
 
-        public static string Run(string command, bool write = true)
+        public static string Run(string command, bool write = false)
         {
             string r = client.RunCommand(command).Result;
 
-            if(write)
-                log.WriteLine(r);
+            log.WriteLine(r, write);
 
             return r;
         }
@@ -338,10 +337,12 @@ namespace Hadooper
             log = File.CreateText(logFile);
         }
 
-        public void WriteLine(string s)
+        public void WriteLine(string s, bool console = true)
         {
             log.WriteLine(s);
-            Console.WriteLine(s);
+
+            if(console)
+                Console.WriteLine(s);
         }
 
         public void SetError(Exception e)
